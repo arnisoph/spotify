@@ -154,10 +154,10 @@ func followArtists(client *spotify.Client) error {
 	log.Printf("Nice, found %d total artists!", len(artists))
 	const batchSize = 40
 	for page := 0; ; page++ {
-		log.Printf("Adding artists of page %d", page)
+		log.Printf("Follow artists of page %d", page)
 
 		start := page * batchSize
-		end := (page * batchSize) + batchSize
+		end := start + batchSize
 
 		if end > len(artists) {
 			end = len(artists)
